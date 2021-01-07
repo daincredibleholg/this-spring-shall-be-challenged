@@ -1,0 +1,21 @@
+spring:
+  flyway:
+    enabled: true
+    url: jdbc:postgresql://localhost:5432/fosdem21
+    user: fosdem
+    password: "Fosdem.2021"
+
+logging:
+  level:
+    org:
+      flywaydb: INFO
+    io:
+      ebean:
+        SQL: DEBUG
+        TXN: DEBUG
+
+datasource:
+  db:
+    username: fosdem
+    password: "Fosdem.2021"
+    databaseUrl: jdbc:postgresql://localhost:5432/fosdem21

@@ -1,0 +1,24 @@
+= FOSDEM 2021 - This Spring Shall Be Challenged
+Holger Steinhauer <holger@steinhauer.software>
+v1.0, 2020-01-07
+:toc:
+
+== Prerequisites
+This needs Java 11 and a PostgreSQL server on your machine.
+
+== Install PostgreSQL
+The easiest to get PostgreSQL available on your local machine is to run the following `docker` command:
+
+[source,shell]
+----
+docker run --name fosdem-postgresql -e POSTGRES_PASSWORD=realySecret -d -p 5432:5432 postgres:13
+----
+
+Once installed, please create a user and schema by connecting to PSQL via `docker exec -ti fosdem-postgresql psql -Upostgres` and execute the following commands:
+
+[source,psql]
+----
+CREATE DATABASE "fosdem21";
+CREATE USER "fosdem" WITH ENCRYPTED PASSWORD 'Fosdem.2021';
+GRANT ALL PRIVILEGES ON DATABASE "fosdem21" TO "fosdem";
+----
