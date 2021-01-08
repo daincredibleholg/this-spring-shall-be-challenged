@@ -1,0 +1,4 @@
+entity-packages: org.fosdem.steinhauer.demo.spring.org.fosdem.steinhauer.demo.domain
+querybean-packages: org.fosdem.steinhauer.demo.spring.org.fosdem.steinhauer.demo.domain
+transactional-packages: org.fosdem.steinhauer.demo
+profile-location: true
