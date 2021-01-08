@@ -1,4 +1,4 @@
-package org.fosdem.steinhauer.demo.spring.domain
+package org.fosdem.steinhauer.demo.domain
 
 import java.time.Instant
 import javax.persistence.*
