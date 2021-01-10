@@ -10,7 +10,7 @@ class Article(var title: String) : BaseModel() {
 
     @OneToOne(optional = true)
     @JoinColumn(name = "image_fk")
-    var images: Image? = null
+    var image: Image? = null
     var body: String? = null
     var publishedAt: Instant? = null
 
