@@ -16,6 +16,7 @@ dependencies {
     api(project(":shared"))
     api("io.ebean:ebean-querybean:${ebeanVersion}")
     implementation("org.springframework.boot:spring-boot-starter-web")
+    implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("org.springframework:spring-jdbc")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 
