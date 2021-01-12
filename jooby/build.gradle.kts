@@ -41,6 +41,7 @@ dependencies {
 
     implementation("io.jooby:jooby-netty")
     implementation ("io.jooby:jooby-jackson:$joobyVersion")
+    implementation ("io.jooby:jooby-pac4j:$joobyVersion")
     implementation("ch.qos.logback:logback-classic")
 
     implementation("org.koin:koin-core:$koinVersion")
