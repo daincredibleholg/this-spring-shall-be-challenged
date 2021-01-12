@@ -17,6 +17,8 @@ dependencies {
     implementation("ch.qos.logback:logback-classic:$logbackVersion")
     implementation("io.ktor:ktor-server-core:$ktorVersion")
     implementation("io.ktor:ktor-jackson:$ktorVersion")
+    implementation("io.ktor:ktor-auth:$ktorVersion")
+
 
     implementation("org.koin:koin-ktor:$koinVersion")
     implementation("io.ebean:ebean-querybean:${ebeanVersion}")

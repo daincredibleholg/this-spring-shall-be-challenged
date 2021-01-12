@@ -2,6 +2,7 @@ package org.fosdem.steinhauer.demo.ktor
 
 import com.fasterxml.jackson.databind.SerializationFeature
 import io.ktor.application.*
+import io.ktor.auth.*
 import io.ktor.features.*
 import io.ktor.jackson.*
 import io.ktor.response.*
@@ -27,12 +28,26 @@ fun Application.module(testing: Boolean = false) {
             enable(SerializationFeature.INDENT_OUTPUT)
         }
     }
+    install(Authentication) {
+        basic(name = "fosdemAuth") {
+            realm = "Fosdem Basic Auth"
+            validate { credentials ->
+                if (credentials.name == "fosdem" && credentials.password == "Fosdem.2021!") {
+                    UserIdPrincipal(credentials.name)
+                } else {
+                    null
+                }
+            }
+        }
+    }
 
     val articleService: ArticleService by inject()
 
     routing {
-        get("/article/") {
-            call.respond(articleService.getAlArticle())
+        authenticate("fosdemAuth") {
+            get("/article/") {
+                call.respond(articleService.getAlArticle())
+            }
         }
     }
 }
