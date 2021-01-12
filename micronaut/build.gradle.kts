@@ -26,12 +26,14 @@ dependencies {
     kapt ("io.micronaut:micronaut-validation")
     kapt ("io.micronaut.configuration:micronaut-openapi")
     kapt("io.micronaut:micronaut-inject-java")
+    kapt("io.micronaut.security:micronaut-security-annotations")
 
     api(project(":shared"))
     implementation(platform("io.micronaut:micronaut-bom:$micronautVersion"))
     implementation("io.micronaut:micronaut-validation")
     implementation("io.micronaut.kotlin:micronaut-kotlin-runtime")
     implementation("javax.annotation:javax.annotation-api")
+    implementation("io.micronaut.security:micronaut-security")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("com.fasterxml.jackson.module:jackson-module-kotlin")
 
