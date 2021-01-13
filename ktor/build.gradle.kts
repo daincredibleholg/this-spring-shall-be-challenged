@@ -1,5 +1,9 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
 plugins {
     kotlin("jvm")
+    id("com.github.johnrengelman.shadow")
+
     application
 }
 
@@ -27,5 +31,21 @@ dependencies {
 }
 
 application {
+    group = "org.fosdem.steinhauer.demo.ktor"
+    version = "1.0.0"
     mainClass.set("io.ktor.server.netty.EngineMain")
+    mainClassName = mainClass.get() //needed by shadowJar
+
+}
+
+
+tasks {
+    named<ShadowJar>("shadowJar") {
+        archiveBaseName.set("app")
+        mergeServiceFiles()
+        manifest {
+            attributes(mapOf("Main-Class" to application.mainClass.get()))
+        }
+    }
+
 }

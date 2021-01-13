@@ -10,7 +10,7 @@ plugins {
     id("io.jooby.run") version joobyVersion
     id("com.google.osdetector") version "1.6.2"
     id("io.spring.dependency-management") version "1.0.10.RELEASE"
-    id("com.github.johnrengelman.shadow") version "6.1.0"
+    id("com.github.johnrengelman.shadow")
 
     application
 }

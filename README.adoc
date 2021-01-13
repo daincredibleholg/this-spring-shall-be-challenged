@@ -36,6 +36,7 @@ The _Dockerfile_ expects the ready-to-use JAR file in the _build_ folder structu
 There are pre-built images available on Docker Hub. Here is the list:
 
 - https://hub.docker.com/r/daincredibleholg/fosdem21-demo-jooby[Jooby Demo]
+- https://hub.docker.com/r/daincredibleholg/fosdem21-demo-ktor[Ktor Demo]
 
 === Configuration
 All images accept the following parameters:

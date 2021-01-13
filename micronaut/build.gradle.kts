@@ -2,7 +2,7 @@ plugins {
     kotlin("jvm")
     kotlin("kapt")
     kotlin("plugin.allopen") version "1.4.21-2"
-    id("com.github.johnrengelman.shadow") version "6.1.0"
+    id("com.github.johnrengelman.shadow")
     id("io.micronaut.application") version "1.2.0"
 }
 
