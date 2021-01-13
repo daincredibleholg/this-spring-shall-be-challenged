@@ -22,3 +22,32 @@ CREATE DATABASE "fosdem21";
 CREATE USER "fosdem" WITH ENCRYPTED PASSWORD 'Fosdem.2021';
 GRANT ALL PRIVILEGES ON DATABASE "fosdem21" TO "fosdem";
 ----
+
+== Docker
+We can create Docker images and run the demos independently this way.
+Each subproject contains a _Dockerfile_ which we use to create the images.
+
+[NOTE]
+====
+The _Dockerfile_ expects the ready-to-use JAR file in the _build_ folder structure. So please run `gradle clean build` before attempting to create the image
+====
+
+=== Pre-built images
+There are pre-built images available on Docker Hub. Here is the list:
+
+- https://hub.docker.com/r/daincredibleholg/fosdem21-demo-jooby[Jooby Demo]
+
+=== Configuration
+All images accept the following parameters:
+
+.Docker container variables
+|===
+| Name | Description | Default
+
+| DB_HOST | Hostname of the target DB | `localhost`
+| DB_NAME | Schema name | `fosdem`
+| DB_USERNAME | Username to auth at DB | `fosdem`
+| DB_PASSWORD | Password to auth at DB | `fosdem`
+|===
+
+Check out https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file[Docker's documentation] on how to set them.
