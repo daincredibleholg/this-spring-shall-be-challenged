@@ -23,9 +23,11 @@ CREATE USER "fosdem" WITH ENCRYPTED PASSWORD 'Fosdem.2021';
 GRANT ALL PRIVILEGES ON DATABASE "fosdem21" TO "fosdem";
 ----
 
+Once you did this, apply the DDL code in link:./database/schema-ddl.sql[the _database_ folder].
+
 == Docker
 We can create Docker images and run the demos independently this way.
-Each subproject contains a _Dockerfile_ which we use to create the images.
+Each subproject contains a _Dockerfile_ which we can use to create the images.
 
 [NOTE]
 ====
@@ -38,6 +40,7 @@ There are pre-built images available on Docker Hub. Here is the list:
 - https://hub.docker.com/r/daincredibleholg/fosdem21-demo-jooby[Jooby Demo]
 - https://hub.docker.com/r/daincredibleholg/fosdem21-demo-ktor[Ktor Demo]
 - https://hub.docker.com/r/daincredibleholg/fosdem21-demo-micronaut[Micronaut Demo]
+- https://hub.docker.com/r/daincredibleholg/fosdem21-demo-spring[Spring Demo]
 
 === Configuration
 All images accept the following parameters:

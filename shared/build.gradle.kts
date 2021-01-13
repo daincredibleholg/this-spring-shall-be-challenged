@@ -6,7 +6,6 @@ plugins {
 apply(plugin = "io.ebean")
 
 val ebeanVersion = "12.6.5"
-val flywayVersion = "7.2.0"
 val postgresqlVersion = "42.2.18"
 
 dependencies {
@@ -15,7 +14,6 @@ dependencies {
     implementation("javax.persistence:javax.persistence-api:2.2")
     implementation("io.ebean:ebean:${ebeanVersion}")
     implementation("io.ebean:ebean-querybean:${ebeanVersion}")
-    implementation("org.flywaydb:flyway-core:${flywayVersion}")
     implementation("org.postgresql:postgresql:${postgresqlVersion}")
 
 }
