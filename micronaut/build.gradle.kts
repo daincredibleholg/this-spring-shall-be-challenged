@@ -1,3 +1,5 @@
+import com.github.jengelman.gradle.plugins.shadow.tasks.ShadowJar
+
 plugins {
     kotlin("jvm")
     kotlin("kapt")
@@ -6,8 +8,6 @@ plugins {
     id("io.micronaut.application") version "1.2.0"
 }
 
-version = "1.0"
-group = "org.fosdem.steinhauer.demo.micronaut"
 
 micronaut {
     runtime("netty")
@@ -42,5 +42,19 @@ dependencies {
 
 
 application {
+    version = "1.0.0"
+    group = "org.fosdem.steinhauer.demo.micronaut"
     mainClass.set("org.fosdem.steinhauer.demo.micronaut.ApplicationKt")
+    mainClassName = mainClass.get()
+}
+
+tasks {
+    named<ShadowJar>("shadowJar") {
+        archiveBaseName.set("app")
+        mergeServiceFiles()
+        manifest {
+            attributes(mapOf("Main-Class" to application.mainClass.get()))
+        }
+    }
+
 }

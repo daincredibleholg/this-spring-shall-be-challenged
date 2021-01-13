@@ -14,7 +14,7 @@ class FosdemSimpleAuthenticationProvider : AuthenticationProvider {
         authenticationRequest: AuthenticationRequest<*, *>?
     ): Publisher<AuthenticationResponse> {
         return Flowable.create({ emitter ->
-            if (authenticationRequest?.identity == "fosdem" && authenticationRequest?.secret == "Fosdem.2021!") {
+            if (authenticationRequest?.identity == "fosdem" && authenticationRequest.secret == "Fosdem.2021!") {
                 emitter.onNext(UserDetails((authenticationRequest.identity as String), emptyList()))
                 emitter.onComplete()
             } else {
