@@ -56,3 +56,8 @@ All images accept the following parameters:
 |===
 
 Check out https://docs.docker.com/engine/reference/commandline/run/#set-environment-variables--e---env---env-file[Docker's documentation] on how to set them.
+
+== Performance Tests
+We use https://gatling.io[Gatling] for simple performance tests. Everything needed is in the link:./performance/build.gradle.kts[performance] subproject.
+
+In order to run the test, run `gradle :performance:gatlingRun` and check the _performance/build/reports/gatling_ subfolders for the results.
