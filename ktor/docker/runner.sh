@@ -6,7 +6,7 @@ DB_USERNAME=${DB_USERNAME:-'fosdem'}
 DB_PASSWORD=${DB_PASSWORD:-'fosdem'}
 
 DD_ENABLE=${DD_ENABLE:-'FALSE'}
-DD_SERVICE_NAME="fosdem21-demo-ktor"
+DD_SERVICE_NAME="fosdem21-demo-jooby"
 DD_AGENT_HOST=${DD_AGENT_HOST:-'172.17.0.1'}
 DD_AGENT_PORT=${DD_AGENT_PORT:-'8126'}
 
@@ -21,7 +21,8 @@ if [ "${DD_ENABLE}" = "FALSE" ]; then
   java -server -XX:+UnlockExperimentalVMOptions -XX:+UseStringDeduplication -jar app.jar
 else
   wget -O dd-java-agent.jar 'https://dtdg.co/latest-java-tracer'
-  java -javaagent:dd-java-agent.jar \
+  java -server \
+       -javaagent:dd-java-agent.jar \
        -Ddd.agent.host=$DD_AGENT_HOST \
        -Ddd.agent.port=$DD_AGENT_PORT \
        -Ddd.profiling.enabled=true \
@@ -30,6 +31,6 @@ else
        -Ddd.service=$DD_SERVICE_NAME \
        -Ddd.env=app-linode \
        -XX:+UnlockExperimentalVMOptions \
-       -XX:+UseStringDeduplication
+       -XX:+UseStringDeduplication \
        -jar app.jar
 fi

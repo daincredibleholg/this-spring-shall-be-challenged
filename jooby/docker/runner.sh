@@ -21,7 +21,8 @@ if [ "${DD_ENABLE}" = "FALSE" ]; then
   java -server -XX:+UnlockExperimentalVMOptions -XX:+UseStringDeduplication -jar app.jar
 else
   wget -O dd-java-agent.jar 'https://dtdg.co/latest-java-tracer'
-  java -javaagent:dd-java-agent.jar \
+  java -server \
+       -javaagent:dd-java-agent.jar \
        -Ddd.agent.host=$DD_AGENT_HOST \
        -Ddd.agent.port=$DD_AGENT_PORT \
        -Ddd.profiling.enabled=true \
@@ -30,6 +31,6 @@ else
        -Ddd.service=$DD_SERVICE_NAME \
        -Ddd.env=app-linode \
        -XX:+UnlockExperimentalVMOptions \
-       -XX:+UseStringDeduplication
+       -XX:+UseStringDeduplication \
        -jar app.jar
 fi
