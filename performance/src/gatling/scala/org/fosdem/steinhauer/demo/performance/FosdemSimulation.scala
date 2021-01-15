@@ -19,6 +19,6 @@ class FosdemSimulation extends Simulation {
     .exec(http("get all articles").get("/article/"))
 
 
-  setUp(scn.inject(rampUsers(1000) during (2 minutes)).protocols(httpProtocol)).maxDuration(5 minutes)
+  setUp(scn.inject(rampUsers(100000) during (2 minutes)).protocols(httpProtocol)).maxDuration(5 minutes)
 
 }

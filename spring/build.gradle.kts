@@ -14,9 +14,11 @@ val ebeanVersion = "12.6.5"
 
 dependencies {
     kapt("org.springframework.boot:spring-boot-configuration-processor")
+    kapt("io.ebean:kotlin-querybean-generator:${ebeanVersion}")
 
     api(project(":shared"))
     api("io.ebean:ebean-querybean:${ebeanVersion}")
+
     implementation("org.springframework.boot:spring-boot-starter-web")
     implementation("org.springframework.boot:spring-boot-starter-security")
     implementation("com.fasterxml.jackson.module:jackson-module-kotlin")

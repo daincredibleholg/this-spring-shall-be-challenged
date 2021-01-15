@@ -29,6 +29,7 @@ else
        -Ddd.logs.injection=true \
        -Ddd.trace.sample.rate=1 \
        -Ddd.service=$DD_SERVICE_NAME \
+       -Ddd.jmxfetch.enabled=true \
        -Ddd.env=app-linode \
        -XX:+UnlockExperimentalVMOptions \
        -XX:+UseStringDeduplication \

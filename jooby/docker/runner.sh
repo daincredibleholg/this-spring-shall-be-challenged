@@ -30,6 +30,7 @@ else
        -Ddd.trace.sample.rate=1 \
        -Ddd.service=$DD_SERVICE_NAME \
        -Ddd.env=app-linode \
+       -Ddd.jmxfetch.enabled=true \
        -XX:+UnlockExperimentalVMOptions \
        -XX:+UseStringDeduplication \
        -jar app.jar
