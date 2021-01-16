@@ -9,7 +9,7 @@ import scala.language.postfixOps
 
 class FosdemSimulation extends Simulation {
 
-  val httpProtocol = http.baseUrl("http://localhost:8080")
+  val httpProtocol = http.baseUrl("https://app.fosdem21.steinhauer.software")
     .acceptHeader("application/json")
     .acceptEncodingHeader("gzip, deflate")
     .userAgentHeader("Fosdem 2021 - This Spring Shall Be Challenged - Gatling Performance Tester")
@@ -19,6 +19,6 @@ class FosdemSimulation extends Simulation {
     .exec(http("get all articles").get("/article/"))
 
 
-  setUp(scn.inject(rampUsers(100000) during (2 minutes)).protocols(httpProtocol)).maxDuration(5 minutes)
+  setUp(scn.inject(rampUsers(1000) during (1 minutes)).protocols(httpProtocol)).maxDuration(2 minutes)
 
 }
