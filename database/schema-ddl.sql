@@ -8,7 +8,7 @@ CREATE TABLE "image"
     when_modified TIMESTAMP             DEFAULT NULL,
     PRIMARY KEY (id)
 );
-CREATE UNIQUE INDEX idx_image_filename ON "image" (filename);
+CREATE INDEX idx_image_filename ON "image" (filename);
 
 CREATE TABLE "article"
 (
